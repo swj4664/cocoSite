@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+.row { max-width: 1200px; margin: 0 auto; padding: 0 10px;}
+
+#header .top_menu {
+    background-color: #f3f3f3; text-align: right; color: #999; font-size: 12px;
+}
+#header .top_menu .row { position: relative;}
+#header .top_menu a { padding: 7px 20px; display: inline-block; border-right: 1px solid #e3e3e3;}
+#header .top_menu a:hover { color: #dbb075;}
+
+/* 형제가 a태그 말고 다른게 있기 때문? */
+#header .top_menu a:nth-of-type(1) {
+    border-left: 1px solid #e3e3e3;
+}
+
+/* 검색창(.search) */
+#header .search {
+    position: absolute; right: 320px; top: 50%; transform: translateY(-50%);
+}
+
+#header .search #sbox {
+    width: 169px; border: none; outline: none; text-indent: 1em;
+}
+
+#header .search label { cursor: pointer;}
+
+/* 로고와 네비게이션 */
+/* float은 둘 다 주고 position:absolute는 높이가 낮은 쪽에 준다. */
+#header > .row { position: relative; z-index: 9;}
+#header h1 { padding: 25px 0;}
+#header #nav {position: absolute; right: 0; font-size: 18px; color: #1e1e1e; top: 50%; transform: translateY(-50%);}
+#header #nav .depth1 > li { float:left; position: relative;}
+#header #nav .depth1 > li > a {display: block; padding: 20px 40px;}
+#header #nav .depth1 > li:hover > a { color: #00529b;}
+#header .depth2 { position: absolute; top: 100%; left: 0; width: 100%; 
+    color: white; background-color: #555; text-align: center; font-size: 14px; display: none;}
+#header #nav .depth1 > li:hover .depth2 {
+    display: block;
+}
+
+#header .depth2 a {display: block; padding: 18px 0; border-bottom: 1px solid #999;
+    transition: all .5s;}
+/* 사촌이기 때문에 :nth-child() 못씀 */
+#header .depth2 > li:last-child > a { border-bottom: none;}
+#header .depth2 > li:hover a { background-color:  #00529b; color: #dfe9fe}
+
+
+/* footer 구역 */
+#footer { background-color: #333; padding: 30px 0; text-align: center; font-size: 12px; line-height: 18px; color: #ddd;}
+
+#footer .sns a {
+    display: inline-block; width: 32px; height: 32px; border-radius: 50%; background-color: rgba(255,255,255,0.1);
+    font-size: 14px; 
+    /* 한 줄만 있을 때 상자의 높이 값이랑 같은 값을 주면 가운데로 온다. */
+    line-height: 32px;
+    margin: 0 5px;
+    transition: all .3s;
+}
+
+#footer .sns a:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+#footer .info { padding: 20px 0;}
+#footer .info span { padding: 5px 20px;}
+
+#footer .privacy > a,
+#footer .privacy > .fam {
+    font-size: 11px; padding: 3px 10px; border: 1px solid rgba(255,255,255,0.5);
+    color: #bbb; cursor: pointer; position: relative; display: inline-block;
+}
+#footer .privacy > a:hover,
+#footer .privacy > .fam:hover {
+    background-color: #999; border: 1px solid #999; color: white;
+}
+#footer .privacy > .fam ul {
+    position: absolute; bottom: 100%; right:0; background-color: white; color: black; text-align: center;
+    width: 100%; padding: 5px; display: none; 
+}
+#footer .privacy > .fam:hover ul {
+    display: block;
+}
